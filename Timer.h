@@ -27,6 +27,8 @@ class FTimer {
     GLint timeElapsed;
     //Measured in milliseconds
     GLint simTimeLeft=0;
+    //Total time
+    GLint totalTime=0;
 public:  
     void printfps ();
     //I'd advise not using this, actually.
@@ -38,6 +40,8 @@ public:
     double getLinearBlendFactor (GLint timestep);
     void setFrameRate (double fps);
     void wait () {SDL_Delay(1);}
+    void addTimeElapsed (GLuint itimeElapsed){totalTime+=itimeElapsed;};
+    GLuint getTotalTime (){return totalTime;};
 }; 
 
 

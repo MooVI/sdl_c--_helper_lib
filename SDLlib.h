@@ -10,7 +10,7 @@
 
 
 /*
- * This code was created by Jeff Molofee '99 
+ * This code was adapted from code created by Jeff Molofee '99 
  * (ported to Linux/SDL by Ti Leggett '01)
  *
  * If you've found this code useful, please let me know.
