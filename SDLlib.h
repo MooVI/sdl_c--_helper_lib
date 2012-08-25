@@ -22,10 +22,7 @@
  */
  
 #include "Timer.h"
-#include "GLQuaternion.h"
-#include "FlyingCamera.h"
 #include "GLResources.h"
-#include "Physics.h"
 
 //SDL Base Class intended to be inherited from
 class SDLBase {

@@ -5,39 +5,35 @@
  * Created on 04 August 2012, 19:48
  */
 
-#ifndef FLYINGCAMERA_H
-#define	FLYINGCAMERA_H
+#ifndef SURFACECAMERA_H
+#define	SURFACECAMERA_H
 //wasd to translate, arrow keys to look around, q and e to roll
 #include "GLQuaternion.h"
 #include "Timer.h"
 #include "Physics.h"
-class FlyingCamera {
+#include <functional>
+class SurfaceCamera {
     Timer mouseTime;
     //x,y,z are world axes.
-    int xpos;
-    int ypos;
-    int zpos;
-    //Rate of change of camera Euler angles
-    float rollVel=0;
-    float pitchVel=0;
-    float yawVel=0;
+    glm::vec3 pos;
+    double pitch=0, yaw=0;
+  
+    
     //Sensitivity to key presses
-    float transSens=0.001;
-    float rotSens=0.0005;
-    //Calculate velocity of camera in
-    void recalculateVel ();
+    double transSens=0.001;
+    double mouseSens=0.05;
+    double rotSens=0.0005;
     //Orientation of camera
     GL_Quaternion<float> orientation;
+    std::function<double (double x, double y)> getZpos;
 public:
-   
-    NoAcceleration<float> q;
-    void setUpCamera (float xpos,float ypos, float zpos);
-    void update(float timeElapsed);
+    void setUpCamera (glm::vec3 ipos,std::function<double (double x, double y)> igetZpos );
+    void update(double timeElapsed);
     glm::mat4x4 getCameraMatrix();
     void handleMouseMotion (const SDL_MouseMotionEvent& motion);
         
 };
     
 
-#endif	/* FLYINGCAMERA_H */
+#endif	/* SURFACECAMERA_H */
 
