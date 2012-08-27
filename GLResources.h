@@ -8,8 +8,16 @@
 #ifndef GLRESOURCES_H
 #define	GLRESOURCES_H
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+
 #include<vector>
 #include <iostream>
+
+struct Material {
+        glm::vec4 colour; 
+        glm::vec4 specular; 
+        GLfloat shininess;      
+    };
 
 class GLResources {
     //Store vertex, element buffers, textures, and program IDs
@@ -44,6 +52,10 @@ public:
     // Given an ID, add it to storage
     int addTexture(const GLuint texture) {
         textures.push_back(texture);
+        return textures.size() - 1;
+    }
+    int addProgram (const GLuint program){
+        programs.push_back(program);
         return textures.size() - 1;
     }
     GLuint bindAttribute (const char * name, int programID=0);

@@ -24,6 +24,8 @@
 #include "Timer.h"
 #include "GLResources.h"
 
+
+
 //SDL Base Class intended to be inherited from
 class SDLBase {
     
